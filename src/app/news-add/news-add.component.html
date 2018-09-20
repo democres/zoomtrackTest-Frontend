@@ -1,0 +1,18 @@
+<div>
+  <h2>Add News</h2>
+  <div>
+    <label>Title:
+      <input [(ngModel)]="news.title" placeholder="News Title"/>
+    </label><br>
+    <label>Description:
+      <input [(ngModel)]="news.newsBody" placeholder="News Description"/>
+    </label><br>
+    <label>Author:
+      <input [(ngModel)]="news.author" placeholder="The Author"/>
+    </label><br>
+    <label>tags:
+      <input [(ngModel)]="news.newsTags" placeholder="Tags"/>
+    </label><br>
+  </div>
+  <button (click)="addNews()">Save</button>
+</div>

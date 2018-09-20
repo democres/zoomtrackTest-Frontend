@@ -1,0 +1,10 @@
+<div *ngIf="news" class="news">
+  <div><span>Title: </span>{{news[0].title}}</div>
+  <div><span>Description: </span>{{news[0].newsBody}}</div>
+  <div><span>Author: </span>{{news[0].author}}</div>
+  <div>
+    <button routerLink="/news-edit/{{news._id}}">
+      Edit
+    </button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<h2>News Feed</h2>
+
+<div>
+  <button (click)="add()">
+    Add
+  </button>
+</div>
+
+<ul class="news">
+  <li *ngFor="let p of news; let i=index;">
+    <a routerLink="/news-details/0">
+      <span class="badge">{{i+1}}</span> {{p.title}}
+    </a>
+    <button class="delete" title="delete news"
+      (click)="delete(p._id)">X</button>
+  </li>
+</ul>
