@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewsEditComponent implements OnInit {
 
-  @Input() newsData:any = { prod_name: '', prod_desc: '', prod_price:0 };
+  @Input() newsData:any = { title: '', newsBody: '', author:'' };
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
@@ -22,7 +22,7 @@ export class NewsEditComponent implements OnInit {
 
   updateNews() {
     this.rest.updateNews(this.route.snapshot.params['id'], this.newsData).subscribe((result) => {
-      this.router.navigate(['/news-details/'+result._id]);
+      this.router.navigate(['/news-feed']);
     }, (err) => {
       console.log(err);
     });

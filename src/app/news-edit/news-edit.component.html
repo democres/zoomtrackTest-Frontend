@@ -2,13 +2,13 @@
   <h2>News Edit</h2>
   <div>
     <label>News Name:
-      <input [(ngModel)]="news[0].title" placeholder="News Name"/>
+      <input [(ngModel)]="newsData.title" placeholder="News Name"/>
     </label><br>
     <label>News Desc:
-      <input [(ngModel)]="news[0].newsBody" placeholder="News Description"/>
+      <input [(ngModel)]="newsData.newsBody" placeholder="News Description"/>
     </label><br>
     <label>News Price:
-      <input [(ngModel)]="news[0].author" placeholder="News Price"/>
+      <input [(ngModel)]="newsData.author" placeholder="News Price"/>
     </label><br>
   </div>
   <button (click)="updateNews()">Update</button>
