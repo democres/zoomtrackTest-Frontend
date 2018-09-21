@@ -2,15 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
 import { NewsEditComponent } from './news-edit/news-edit.component';
 import { NewsAddComponent } from './news-add/news-add.component';
+import { LoginComponent } from './login/login.component';
+
+import { AlertService, AuthenticationService, UserService } from './_services';
 
 const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
+  },
   {
     path: 'news-feed',
     component: NewsComponent,
@@ -43,15 +51,21 @@ const appRoutes: Routes = [
     NewsComponent,
     NewsDetailComponent,
     NewsEditComponent,
-    NewsAddComponent
+    NewsAddComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AlertService,
+    AuthenticationService,
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
