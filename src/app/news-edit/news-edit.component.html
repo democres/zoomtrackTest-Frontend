@@ -1,15 +1,31 @@
-<div>
-  <h2>News Edit</h2>
-  <div>
-    <label>News Name:
-      <input [(ngModel)]="newsData.title" placeholder="News Name"/>
-    </label><br>
-    <label>News Desc:
-      <input [(ngModel)]="newsData.newsBody" placeholder="News Description"/>
-    </label><br>
-    <label>News Price:
-      <input [(ngModel)]="newsData.author" placeholder="News Price"/>
-    </label><br>
+
+<div class="w3-row">
+  <!-- Blog entries -->
+  <div class="w3-col l8 s12">
+    <h1><b>Edit News</b></h1>
+    <!-- Blog entry -->
+    <div class="w3-card-4 w3-margin w3-white">
+      <img src="https://www.w3schools.com/w3images/woods.jpg" alt="Nature" style="width:100%">
+      <div class="w3-container">
+        <h3><input style="max-width:100%;" [(ngModel)]="newsData.title" placeholder="News Title"/></h3>
+        <h5>Author: <span><input style="max-width:100%;" [(ngModel)]="newsData.author" placeholder="The Author"/> </span></h5>
+      </div>
+
+      <div class="w3-container">
+        <textarea [(ngModel)]="newsData.newsBody" style="width:100%;" rows="4" cols="50" placeholder="News Description"></textarea>
+        <div class="w3-container w3-white">
+          <h5>Tags: <span><input style="max-width:100%;" [(ngModel)]="newsData.newsTags" placeholder="Tags separated by /"/> </span></h5>
+        </div>
+        <div class="w3-row">
+          <div class="w3-col m8 s12">
+            <p><button class="w3-button w3-black w3-padding-large w3-margin-bottom" (click)="updateNews()">UPDATE</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END BLOG ENTRIES -->
   </div>
-  <button (click)="updateNews()">Update</button>
+
+  <!-- END GRID -->
 </div>
