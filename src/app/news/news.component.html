@@ -2,16 +2,22 @@
 
 <div>
   <button (click)="add()">
-    Add
+    Create News
   </button>
 </div>
 
 <ul class="news">
   <li *ngFor="let p of news; let i=index;">
-    <a routerLink="/news-details/0">
+    <a routerLink="/news-details/{{p.id}}">
       <span class="badge">{{i+1}}</span> {{p.title}}
     </a>
     <button class="delete" title="delete news"
       (click)="delete(p._id)">X</button>
   </li>
 </ul>
+
+<div>
+  <button class="moreBtn" (click)="loadMore()">
+    More
+  </button>
+</div>

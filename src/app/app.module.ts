@@ -12,7 +12,7 @@ import { NewsAddComponent } from './news-add/news-add.component';
 
 const appRoutes: Routes = [
   {
-    path: 'newss',
+    path: 'news-feed',
     component: NewsComponent,
     data: { title: 'News List' }
   },
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     data: { title: 'News Edit' }
   },
   { path: '',
-    redirectTo: '/newss',
+    redirectTo: '/news-feed',
     pathMatch: 'full'
   }
 ];

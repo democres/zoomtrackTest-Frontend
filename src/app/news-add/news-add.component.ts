@@ -18,8 +18,9 @@ export class NewsAddComponent implements OnInit {
 
   addNews() {
     this.rest.addNews(this.news).subscribe((result) => {
-      this.router.navigate(['/news']);
+      this.router.navigate(['/news-feed']);
     }, (err) => {
+      alert("Error");
       console.log(err);
     });
   }

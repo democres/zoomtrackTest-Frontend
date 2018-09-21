@@ -1,4 +1,10 @@
 /* news Component's private CSS styles */
+
+.moreBtn {
+  background-color: #607D8B;
+  color: white;
+}
+
 .news {
   margin: 0 0 2em 0;
   list-style-type: none;

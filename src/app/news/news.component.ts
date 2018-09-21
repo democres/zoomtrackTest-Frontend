@@ -10,16 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NewsComponent implements OnInit {
 
   news:any = [];
+  newsPage = 0;
 
   constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.getNews();
+    this.getNews(0);
   }
 
-  getNews() {
+  getNews(id) {
     this.news = [];
-    this.rest.getNews().subscribe((data: {}) => {
+    this.rest.getNews(id).subscribe((data: {}) => {
       console.log(data);
       this.news = data;
     });
@@ -29,10 +30,15 @@ export class NewsComponent implements OnInit {
     this.router.navigate(['/news-add']);
   }
 
+  loadMore() {
+    this.newsPage++;
+    this.getNews(this.newsPage);
+  }
+
   delete(id) {
     this.rest.deleteNews(id)
       .subscribe(res => {
-          this.getNews();
+          this.getNews(0);
         }, (err) => {
           console.log(err);
         }

@@ -6,7 +6,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 const endpoint = 'http://localhost:4000/';
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
   })
 };
 
@@ -22,20 +22,20 @@ export class RestService {
     return body || { };
   }
 
-  getNews(): Observable<any> {
-    return this.http.get(endpoint + 'news/0').pipe(
+  getNews(id): Observable<any> {
+    return this.http.get(endpoint + 'news/'+id).pipe(
       map(this.extractData));
   }
 
   getNewsById(id): Observable<any> {
-    return this.http.get(endpoint + 'news/' + id).pipe(
+    return this.http.get(endpoint + 'news/getById/' + id).pipe(
       map(this.extractData));
   }
 
   addNews (news): Observable<any> {
     console.log(news);
     return this.http.post<any>(endpoint + 'news/createNews', JSON.stringify(news), httpOptions).pipe(
-      tap((news) => console.log(`added news w/ id=${news.id}`)),
+      tap((news) => console.log(`added news w/ title=${news.title}`)),
       catchError(this.handleError<any>('addNews'))
     );
   }
