@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 
-const endpoint = 'http://localhost:4000/';
+const endpoint = 'http://52.87.165.198:4000/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
